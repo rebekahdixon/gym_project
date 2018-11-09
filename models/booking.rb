@@ -59,5 +59,20 @@ def self.find(id)
    return booking
  end
 
+ def member()
+   sql = "SELECT * FROM members
+   WHERE id = $1"
+   values = [@members_id]
+   results = SqlRunner.run( sql, values )
+   return Member.new( results.first )
+ end
+
+ def session()
+   sql = "SELECT * FROM sessions
+   WHERE id = $1"
+   values = [@sessions_id]
+   results = SqlRunner.run( sql, values )
+   return Session.new( results.first )
+ end
 
 end

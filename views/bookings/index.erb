@@ -1,0 +1,8 @@
+<p>All Bookings</p>
+
+<!-- <form action="/bookings/new" method="GET"><input type="submit" value="create new booking"></form> -->
+<% @bookings.each do |booking| %>
+  <h1><a href="/bookings/<%= booking.id%>"><%=booking.member.format_name%><%=booking.session.session_name%>></a></h1>
+
+
+<% end %>
