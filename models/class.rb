@@ -47,7 +47,7 @@ end
 def self.all
   sql ="SELECT * FROM classes"
   results = SqlRunner.run(sql)
-  return results.map { |gym_class| Class.new(gym_class) }
+  return results.map { |gym_class| GymClass.new(gym_class) }
 end
 
 def self.find
@@ -55,7 +55,7 @@ def self.find
    WHERE id = $1"
    values = [@id]
    result = SqlRunner.run(sql, values).first
-   gym_class = Class.new(result)
+   gym_class = GymClass.new(result)
    return gym_class
  end
 

@@ -4,7 +4,7 @@ require_relative( "../models/booking.rb" )
 # require("pry-byebug")
 
 Booking.delete_all
-Class.delete_all
+Session.delete_all
 Member.delete_all
 
 
@@ -20,11 +20,11 @@ member1.first_name = 'bekah'
 member1.update
 
 
-class1 = Class.new({'class_name' => 'spin', 'class_time' => '08:00'})
+class1 = Session.new({'class_name' => 'spin', 'class_time' => '08:00'})
 class1.save
-class2 = Class.new({'class_name' => 'boxing', 'class_time' => '12:00'})
+class2 = Session.new({'class_name' => 'boxing', 'class_time' => '12:00'})
 class2.save
-class3 = Class.new({'class_name' => 'yoga', 'class_time' => '14:00'})
+class3 = Session.new({'class_name' => 'yoga', 'class_time' => '14:00'})
 class3.save
 
 booking1 = Booking.new({'members_id' => member1.id, 'classes_id' => class1.id})

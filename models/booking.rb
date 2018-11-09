@@ -47,7 +47,7 @@ end
 def self.all
   sql ="SELECT * FROM bookings"
   results = SqlRunner.run(sql)
-  return results.map { |booking| Class.new(booking) }
+  return results.map { |booking| Booking.new(booking) }
 end
 
 def self.find

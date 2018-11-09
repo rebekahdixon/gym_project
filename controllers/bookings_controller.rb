@@ -3,4 +3,3 @@
 require_relative( '../models/booking.rb' )
 require_relative( '../models/class.rb' )
 require_relative( '../models/member.rb' )
-also_reload( '../models/*' )

@@ -1,4 +1,5 @@
 require_relative( '../db/sql_runner' )
+require('pry-byebug')
 
 class Member
 
@@ -47,13 +48,13 @@ end
 def self.all
   sql ="SELECT * FROM members"
   results = SqlRunner.run(sql)
-  return results.map { |member| Class.new(member) }
+  return results.map { |member| Member.new(member) }
 end
 
-def self.find
+def self.find(id)
    sql = "SELECT * FROM members
    WHERE id = $1"
-   values = [@id]
+   values = [id]
    result = SqlRunner.run(sql, values).first
    member = Member.new(result)
    return member
@@ -67,6 +68,6 @@ def classes()
   sql = "SELECT classes.* FROM classes INNER JOIN bookings ON bookings.classes_id = classes.id WHERE bookings.classes_id = $1;"
   values = [@id]
   results = SqlRunner.run(sql, values)
-  return results.map { |gym_class| Class.new(gym_glass) }
+  return results.map { |gym_class| Session.new(gym_glass) }
 end
 end
