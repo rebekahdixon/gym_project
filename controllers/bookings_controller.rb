@@ -14,11 +14,6 @@ get '/bookings/new' do
   erb(:"bookings/new")
 end
 
-#show
-get '/bookings/:id' do
-  @bookings = Booking.find(params['id'].to_i)
-  erb( :"bookings/show" )
-end
 
 #Create
 post '/bookings' do
