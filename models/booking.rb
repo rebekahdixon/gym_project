@@ -49,4 +49,15 @@ def self.all
   results = SqlRunner.run(sql)
   return results.map { |booking| Class.new(booking) }
 end
+
+def self.find
+   sql = "SELECT * FROM bookings
+   WHERE id = $1"
+   values = [@id]
+   result = SqlRunner.run(sql, values).first
+   booking = Booking.new(result)
+   return booking
+ end
+
+
 end
