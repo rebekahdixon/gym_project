@@ -4,6 +4,9 @@
 
 <% @sessions.each do |session| %>
   <h1><a href="/sessions/<%= session.id%>"><%= session.session_name%></a></h1>
-  <p>Name: <%= session.session_name %></p>
+  <p>Name: <%= session.session_name %>
+    <br>
+    Time: <%= session.session_time%>
+  </p>
 
 <% end %>
