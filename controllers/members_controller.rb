@@ -12,7 +12,7 @@ get '/members/new' do
   erb(:"members/new")
 end
 
-#find
+#show
 get '/members/:id' do
   @members = Member.find(params['id'].to_i)
   erb( :"members/show" )
@@ -39,8 +39,8 @@ post '/members/:id' do
 end
 
 # destroy
-post '/member/:id/delete' do
+post '/members/:id/delete' do
   @member = Member.find(params['id'])
   @member.delete
-  redirect to '/member'
+  redirect to '/members'
 end

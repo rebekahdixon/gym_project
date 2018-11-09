@@ -1,5 +1,5 @@
 DROP TABLE bookings;
-DROP TABLE classes;
+DROP TABLE sessions;
 DROP TABLE members;
 
 CREATE TABLE members(
@@ -8,14 +8,14 @@ CREATE TABLE members(
   last_name VARCHAR(255)
 );
 
-CREATE TABLE classes(
+CREATE TABLE sessions(
   id SERIAL8 PRIMARY KEY,
-  class_name VARCHAR(255),
-  class_time VARCHAR(255),
+  session_name VARCHAR(255),
+  session_time VARCHAR(255)
 );
 
 CREATE TABLE bookings(
   id SERIAL8 PRIMARY KEY,
   members_id INT8 REFERENCES members(id) ON DELETE CASCADE,
-  classes_id INT8 REFERENCES classes(id) ON DELETE CASCADE
+  sessions_id INT8 REFERENCES sessions(id) ON DELETE CASCADE
 );
