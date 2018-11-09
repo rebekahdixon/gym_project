@@ -32,3 +32,5 @@ booking2 = Booking.new({'members_id' => member2.id, 'classes_id' => class2.id})
 booking2.save
 booking3 = Booking.new({'members_id' => member3.id, 'classes_id' => class3.id})
 booking3.save
+
+booking2.delete
