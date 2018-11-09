@@ -68,6 +68,6 @@ def classes()
   sql = "SELECT sessions.* FROM sessions INNER JOIN bookings ON bookings.sessions_id = sessions.id WHERE bookings.sessions_id = $1;"
   values = [@id]
   results = SqlRunner.run(sql, values)
-  return results.map { |gym_class| Session.new(gym_glass) }
+  return results.map { |gym_class| Session.new(gym_class) }
 end
 end

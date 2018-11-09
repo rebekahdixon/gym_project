@@ -1,0 +1,9 @@
+<p>All Sessions</p>
+
+<form action="/sessions/new" method="GET"><input type="submit" value="create new session"></form>
+
+<% @sessions.each do |session| %>
+  <h1><a href="/sessions/<%= session.id%>"><%= session.session_name%></a></h1>
+  <p>Name: <%= session.session_name %></p>
+
+<% end %>

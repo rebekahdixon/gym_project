@@ -1,9 +1,9 @@
 <p>All Members</p>
 
+<form action="/members/new" method="GET"><input type="submit" value="create new member"></form>
+
 <% @members.each do |member| %>
+  <h1><a href="/members/<%= member.id%>"><%= member.format_name%></a></h1>
   <p>Name: <%= member.format_name %></p>
-
-
-
 
 <% end %>

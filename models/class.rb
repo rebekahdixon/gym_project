@@ -47,15 +47,15 @@ end
 def self.all
   sql ="SELECT * FROM sessions"
   results = SqlRunner.run(sql)
-  return results.map { |gym_class| GymClass.new(gym_class) }
+  return results.map { |session| Session.new(session) }
 end
 
-def self.find
+def self.find(id)
    sql = "SELECT * FROM sessions
    WHERE id = $1"
-   values = [@id]
+   values = [id]
    result = SqlRunner.run(sql, values).first
-   gym_class = GymClass.new(result)
+   gym_class = Session.new(result)
    return gym_class
  end
 
