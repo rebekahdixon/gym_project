@@ -35,7 +35,7 @@ end
 post '/members/:id' do
   member = Member.new(params)
   member.update
-  redirect to '/member/' + params[:id]
+  redirect to '/members'
 end
 
 # destroy
