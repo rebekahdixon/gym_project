@@ -10,39 +10,39 @@ end
 #new
 get '/bookings/new' do
   @members = Member.all
-  @sessions = Session.all 
+  @sessions = Session.all
   erb(:"bookings/new")
 end
 
 #show
-get '/sessions/:id' do
-  @sessions = Session.find(params['id'].to_i)
-  erb( :"sessions/show" )
+get '/bookings/:id' do
+  @bookings = Booking.find(params['id'].to_i)
+  erb( :"bookings/show" )
 end
 
 #Create
-post '/sessions' do
-  session = Session.new(params)
-  session.save
-  redirect to('/sessions')
+post '/bookings' do
+  booking = Booking.new(params)
+  booking.save
+  redirect to('/bookings')
 end
 
 #edit
-get '/sessions/:id/edit' do
-    @session = Session.find(params[:id])
-    erb(:"sessions/edit")
+get '/bookings/:id/edit' do
+    @booking = Booking.find(params[:id])
+    erb(:"booking/edit")
 end
 
 # update
-post '/sessions/:id' do
-  session = Session.new(params)
-  session.update
-  redirect to '/sessions'
+post '/bookings/:id' do
+  booking = Booking.new(params)
+  booking.update
+  redirect to '/bookings'
 end
 
 # destroy
-post '/sessions/:id/delete' do
-  @session = Session.find(params['id'])
-  @session.delete
-  redirect to '/sessions'
+post '/bookings/:id/delete' do
+  @booking = Booking.find(params['id'])
+  @booking.delete
+  redirect to '/booking'
 end
