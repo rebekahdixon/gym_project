@@ -19,6 +19,7 @@ member3.save
 member1.first_name = 'bekah'
 member1.update
 
+
 class1 = Class.new({'class_name' => 'spin', 'class_time' => '08:00'})
 class1.save
 class2 = Class.new({'class_name' => 'boxing', 'class_time' => '12:00'})

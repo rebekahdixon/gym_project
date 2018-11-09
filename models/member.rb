@@ -63,4 +63,10 @@ def self.find
   return "#{@first_name.capitalize} #{@last_name.capitalize}"
 end
 
+def classes()
+  sql = "SELECT classes.* FROM classes INNER JOIN bookings ON bookings.classes_id = classes.id WHERE bookings.classes_id = $1;"
+  values = [@id]
+  results = SqlRunner.run(sql, values)
+  return results.map { |gym_class| Class.new(gym_glass) }
+end
 end
