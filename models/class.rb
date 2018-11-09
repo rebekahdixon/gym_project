@@ -50,4 +50,13 @@ def self.all
   return results.map { |gym_class| Class.new(gym_class) }
 end
 
+def self.find
+   sql = "SELECT * FROM classes
+   WHERE id = $1"
+   values = [@id]
+   result = SqlRunner.run(sql, values).first
+   gym_class = Class.new(result)
+   return gym_class
+ end
+
 end
