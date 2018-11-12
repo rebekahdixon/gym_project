@@ -10,9 +10,7 @@ end
 #new
 get '/bookings/new' do
   @members = Member.all
-  # logic
   @sessions = Session.available_sessions
-
 
   erb(:"bookings/new")
 end

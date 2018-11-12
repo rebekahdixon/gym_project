@@ -1,6 +1,6 @@
 <h1><%= @sessions.session_name %> (member)
 <%= @sessions.session_time%>(time)</h1>
-
+<%= @sessions.session_date%>(date)
 <h3>Members:</h3>
 
 <ul>
@@ -9,7 +9,7 @@
  <% end %>
 </ul>
 <br>
-
+<%= @sessions.how_many_spaces %>
 
 <form action="/sessions/<%= @sessions.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
 

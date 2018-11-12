@@ -2,22 +2,23 @@ require_relative( '../db/sql_runner' )
 require('pry-byebug')
 class Session
 
-  attr_accessor(:session_name, :session_time, :id, :capacity)
+  attr_accessor(:session_name, :session_time, :id, :capacity, :session_date)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @session_name = options['session_name']
     @session_time = options['session_time']
     @capacity = options['capacity'].to_i
+    @session_date = format_date(options['session_date'])
   end
 
   def save()
   sql = "INSERT INTO sessions
-  (session_name, session_time, capacity)
+  (session_name, session_time, capacity, session_date)
   VALUES
-  ($1, $2, $3)
+  ($1, $2, $3, $4)
   RETURNING id"
-  values = [@session_name, @session_time, @capacity]
+  values = [@session_name, @session_time, @capacity, @session_date]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end
@@ -26,10 +27,10 @@ end
 def update()
   sql = "UPDATE sessions
   SET
-  (session_name, session_time, capacity) =
-  ($1, $2, $3)
-  WHERE id = $4"
-  values = [@session_name, @session_time, @capacity, @id]
+  (session_name, session_time, capacity, session_date) =
+  ($1, $2, $3, $4)
+  WHERE id = $5"
+  values = [@session_name, @session_time, @capacity, @session_date, @id]
   SqlRunner.run(sql, values)
 end
 
@@ -56,8 +57,8 @@ def self.find(id)
    WHERE id = $1"
    values = [id]
    result = SqlRunner.run(sql, values).first
-   gym_class = Session.new(result)
-   return gym_class
+   session = Session.new(result)
+   return session
  end
 
  def members
@@ -87,7 +88,19 @@ def Session.available_sessions
   end
 end
 
-#show if session is full/how many spaces under members attending
+def how_many_spaces
+  spaces_left = @capacity - count_members
+  if spaces_left > 0
+    return spaces_left
+  else
+    return "FULL"
+  end
+end
+
+def format_date(session_date)
+  d = Date.parse(session_date)
+  d.strftime("%d/%m/%Y")
+end
 
 
 end
