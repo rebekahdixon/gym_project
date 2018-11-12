@@ -97,6 +97,7 @@ def how_many_spaces
   end
 end
 
+
 def format_date(session_date)
   d = Date.parse(session_date)
   d.strftime("%d/%m/%Y")
