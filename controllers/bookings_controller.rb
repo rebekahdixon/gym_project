@@ -26,6 +26,6 @@ end
 # destroy
 post '/bookings/:id/delete' do
   @booking = Booking.find(params['id'])
-  @booking.delete
-  redirect to '/booking'
+  Booking.delete(params[:id])
+  redirect to '/bookings'
 end
