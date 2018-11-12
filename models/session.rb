@@ -70,7 +70,7 @@ def self.find(id)
 
 def count_members
   # binding.pry
-  Member.all.count
+  members.count 
 end
 
 def session_full?

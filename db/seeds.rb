@@ -1,13 +1,19 @@
 require_relative( "../models/member.rb" )
 require_relative( "../models/session.rb" )
 require_relative( "../models/booking.rb" )
+require_relative( "../models/instructor.rb" )
 # require("pry-byebug")
 
 Booking.delete_all
 Session.delete_all
 Member.delete_all
 
-
+instructor1= Instructor.new({'name' => 'Colin'})
+instructor1.save()
+instructor2= Instructor.new({'name' => 'Rachel'})
+instructor2.save()
+instructor3= Instructor.new({'name' => 'Andy'})
+instructor3.save()
 
 member1 = Member.new({'first_name' => 'Rebekah', 'last_name' => 'Dixon'})
 member1.save
