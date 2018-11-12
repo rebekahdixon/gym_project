@@ -1,5 +1,5 @@
 require_relative( '../models/booking.rb' )
-require_relative( '../models/class.rb' )
+require_relative( '../models/session.rb' )
 require_relative( '../models/member.rb' )
 
 #index
@@ -10,10 +10,12 @@ end
 #new
 get '/bookings/new' do
   @members = Member.all
-  @sessions = Session.all
+  # logic
+  @sessions = Session.available_sessions
+
+
   erb(:"bookings/new")
 end
-
 
 #Create
 post '/bookings' do
@@ -21,7 +23,6 @@ post '/bookings' do
   booking.save
   redirect to('/bookings')
 end
-
 
 # destroy
 post '/bookings/:id/delete' do

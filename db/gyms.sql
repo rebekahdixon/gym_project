@@ -11,7 +11,8 @@ CREATE TABLE members(
 CREATE TABLE sessions(
   id SERIAL8 PRIMARY KEY,
   session_name VARCHAR(255),
-  session_time VARCHAR(255)
+  session_time VARCHAR(255),
+  capacity VARCHAR(255)
 );
 
 CREATE TABLE bookings(

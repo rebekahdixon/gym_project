@@ -1,6 +1,16 @@
 <h1><%= @sessions.session_name %> (member)
 <%= @sessions.session_time%>(time)</h1>
 
+<h3>Members:</h3>
+
+<ul>
+ <% @sessions.members.each do |member| %>
+ <li><%= member.format_name %></li>
+ <% end %>
+</ul>
+<br>
+
+
 <form action="/sessions/<%= @sessions.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
 
 
