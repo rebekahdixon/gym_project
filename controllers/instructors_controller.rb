@@ -19,10 +19,10 @@ get '/instructors/:id' do
 end
 
 #Create
-post '/members' do
-  member = Member.new(params)
-  member.save
-  redirect to('/members')
+post '/instructors' do
+  instructor = Instructor.new(params)
+  instructor.save
+  redirect to('/instructors')
 end
 
 #edit
