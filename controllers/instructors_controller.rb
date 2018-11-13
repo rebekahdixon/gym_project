@@ -8,13 +8,14 @@ get '/instructors' do
 end
 #new
 get '/instructors/new' do
-
+  @sessions = Session.all
+  @instructors = Instructor.all
   erb(:"instructors/new")
 end
 
 #show
 get '/instructors/:id' do
-  @instructors = Instructor.find(params['id'].to_i)
+  @instructor = Instructor.find(params['id'].to_i)
   erb( :"instructors/show" )
 end
 
@@ -26,21 +27,21 @@ post '/instructors' do
 end
 
 #edit
-get '/members/:id/edit' do
-    @member = Member.find(params[:id])
-    erb(:"members/edit")
+get '/instructors/:id/edit' do
+    @instructor = Instructor.find(params[:id])
+    erb(:"instructors/edit")
 end
 
 # update
-post '/members/:id' do
-  member = Member.new(params)
-  member.update
-  redirect to '/members'
+post '/instructors/:id' do
+  instructor = Instructor.new(params)
+  instructor.update
+  redirect to '/instructors'
 end
 
 # destroy
-post '/members/:id/delete' do
-  @member = Member.find(params['id'])
-  @member.delete
-  redirect to '/members'
+post '/instructors/:id/delete' do
+  @instructor = Instructor.find(params['id'])
+  @instructor.delete
+  redirect to '/instructors'
 end

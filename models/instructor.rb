@@ -24,8 +24,8 @@ end
 def update()
   sql = "UPDATE instructors
   SET
-  (name) =
-  ($1)
+  name =
+  $1
   WHERE id = $2"
   values = [@name, @id]
   SqlRunner.run(sql, values)
@@ -67,5 +67,14 @@ def self.find(id)
   return sessions
 end
 
+def self.instructors_free(datetime)
+sql = "SELECT DISTINCT instructors.*
+ FROM instructors, sessions
+ WHERE instructors.id NOT IN (SELECT instructor_id FROM sessions WHERE session_datetime = $1)"
+ value = [datetime]
+ results = SqlRunner.run(sql, value)
+ return instructors = results.map { |instructor| Instructor.new(instructor) }
+ return instructors
+end
 
 end

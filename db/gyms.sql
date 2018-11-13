@@ -17,9 +17,8 @@ CREATE TABLE members(
 CREATE TABLE sessions(
   id SERIAL8 PRIMARY KEY,
   session_name VARCHAR(255),
-  session_time VARCHAR(255),
+  session_datetime VARCHAR(255),
   capacity VARCHAR(255),
-  session_date VARCHAR(255),
   instructor_id INT8 REFERENCES instructors(id) ON DELETE CASCADE
 );
 

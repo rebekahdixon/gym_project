@@ -1,0 +1,16 @@
+<form action="/sessions" method="post">
+
+</form>
+<label>
+Select a Instructor:
+  <select name="instructor_id">
+    <% for instructor in @instructors %>
+    <option value="<%= instructor.id %>"><%= instructor.name %></option>
+    <% end %>
+  </select>
+</label>
+<br>
+<br>
+
+
+<input type="submit" value="Create new session">

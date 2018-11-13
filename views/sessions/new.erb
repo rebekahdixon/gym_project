@@ -1,16 +1,17 @@
-<form action="/sessions" method="post">
+<form action="/sessions/chooseinstructor/" method="get">
 
 <label for="session-name">Session Name:</label>
 <input id="session-name" type="text" name="session_name">
 <br>
-<br>
-<label for="session-time">Session Time:</label>
-<input id="session-time" type="text" name="session_time">
-
-<label for="session_date">Session
-Date:</label><input id="session-date" type="date" name="session_date">
-
 <label for="capacity">Capacity:</label><input id="capacity" type="text" name="capacity">
+<br>
+<br>
+<br>
+<label for="session-datetime">Session Time and Date:</label>
+<input id="session-datetime" type="datetime-local" name="session_datetime">
+<input type="submit" value="input date/time">
 
-<input type="submit" value="Create new session">
+<br>
+<br>
+
 </form>

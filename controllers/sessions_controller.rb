@@ -13,13 +13,22 @@ get '/sessions' do
 end
 #new
 get '/sessions/new' do
-
+@instructors = Instructor.all
   erb(:"sessions/new")
+
 end
+
+get '/sessions/chooseinstructor/' do
+   # params['capacity'] params['session_name'] params['session_datetime']
+
+@instructors = Instructor.instructors_free(params['session_datetime'])
+erb(:"sessions/chooseinstructor")
+end
+
 
 #show
 get '/sessions/:id' do
-  @sessions = Session.find(params['id'].to_i)
+  @session = Session.find(params['id'].to_i)
   erb( :"sessions/show" )
 end
 
@@ -31,17 +40,17 @@ post '/sessions' do
 end
 
 #edit
-get '/sessions/:id/edit' do
-    @session = Session.find(params[:id])
-    erb(:"sessions/edit")
-end
-
-# update
-post '/sessions/:id' do
-  session = Session.new(params)
-  session.update
-  redirect to '/sessions'
-end
+# get '/sessions/:id/edit' do
+#     @session = Session.find(params[:id])
+#     erb(:"sessions/edit")
+# end
+#
+# # update
+# post '/sessions/:id' do
+#   session = Session.new(params)
+#   session.update
+#   redirect to '/sessions'
+# end
 
 # destroy
 post '/sessions/:id/delete' do

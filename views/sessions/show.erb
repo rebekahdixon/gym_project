@@ -1,17 +1,20 @@
-<h1><%= @sessions.session_name %> (member)
-<%= @sessions.session_time%>(time)</h1>
-<%= @sessions.session_date%>(date)
+<h1><%= @session.session_name %> (member)
+<%= @session.session_datetime%>(time)</h1>
+
 <h3>Members:</h3>
 
 <ul>
- <% @sessions.members.each do |member| %>
+ <% @session.members.each do |member| %>
  <li><%= member.format_name %></li>
  <% end %>
 </ul>
 <br>
-<%= @sessions.how_many_spaces %>
+<br>
+<%= @session.instructor%>
+<br>
+<br>
+<%= @session.how_many_spaces %>
 
-<form action="/sessions/<%= @sessions.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
 
 
-<form action="/sessions/<%= @sessions.id %>/delete" method="POST"><input type="submit" value="delete"></form>
+<form action="/sessions/<%= @session.id %>/delete" method="POST"><input type="submit" value="delete"></form>

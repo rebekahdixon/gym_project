@@ -2,24 +2,23 @@ require_relative( '../db/sql_runner' )
 require('pry-byebug')
 class Session
 
-  attr_accessor(:session_name, :session_time, :id, :capacity, :session_date)
+  attr_accessor(:session_name, :session_datetime, :id, :capacity, :instructor_id )
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @session_name = options['session_name']
-    @session_time = options['session_time']
+    @session_datetime = options['session_datetime']
     @capacity = options['capacity'].to_i
-    @session_date = format_date(options['session_date'])
     @instructor_id = options['instructor_id'].to_i
   end
 
   def save()
   sql = "INSERT INTO sessions
-  (session_name, session_time, capacity, session_date, instructor_id)
+  (session_name, session_datetime, capacity, instructor_id)
   VALUES
-  ($1, $2, $3, $4, $5)
+  ($1, $2, $3, $4)
   RETURNING id"
-  values = [@session_name, @session_time, @capacity, @session_date, @instructor_id]
+  values = [@session_name, @session_datetime, @capacity, @instructor_id]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end
@@ -28,10 +27,10 @@ end
 def update()
   sql = "UPDATE sessions
   SET
-  (session_name, session_time, capacity, session_date, instructor_id) =
-  ($1, $2, $3, $4, $5)
-  WHERE id = $6"
-  values = [@session_name, @session_time, @capacity, @session_date, @instructor_id, @id]
+  (session_name, session_datetime, capacity, instructor_id) =
+  ($1, $2, $3, $4)
+  WHERE id = $5"
+  values = [@session_name, @session_datetime, @capacity, @instructor_id, @id]
   SqlRunner.run(sql, values)
 end
 
@@ -112,6 +111,7 @@ def instructor()
   results = SqlRunner.run( sql, values )
   return Instructor.new( results.first )
 end
+
 
 
 end
