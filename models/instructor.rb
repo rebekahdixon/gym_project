@@ -58,4 +58,14 @@ def self.find(id)
    return instructor
  end
 
+ def sessions
+  sql = "SELECT * FROM sessions
+  WHERE instructor_id = $1"
+  values = [@id]
+  results = SqlRunner.run( sql, values )
+  sessions = results.map { |session| Session.new(session) }
+  return sessions
+end
+
+
 end

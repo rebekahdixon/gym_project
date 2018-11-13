@@ -1,0 +1,14 @@
+<h1><%= @instructors.name %> (instructor)</h1>
+
+<ul>
+ <% @instructors.sessions.each do |session| %>
+ <li><%= session.session_name %><br>
+ <%= session.session_time %></li>
+ <% end %>
+</ul>
+<br>
+
+<form action="/instructors/<%= @instructors.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
+
+
+<form action="/instructors/<%= @instructors.id %>/delete" method="POST"><input type="submit" value="delete"></form>

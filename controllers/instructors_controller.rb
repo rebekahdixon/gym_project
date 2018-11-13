@@ -13,9 +13,9 @@ get '/instructors/new' do
 end
 
 #show
-get '/members/:id' do
-  @members = Member.find(params['id'].to_i)
-  erb( :"members/show" )
+get '/instructors/:id' do
+  @instructors = Instructor.find(params['id'].to_i)
+  erb( :"instructors/show" )
 end
 
 #Create
