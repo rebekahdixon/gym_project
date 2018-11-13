@@ -104,7 +104,6 @@ def format_date(session_date)
   d.strftime("%d/%m/%Y")
 end
 
-end
 
 def instructor()
   sql = "SELECT * FROM instructors
@@ -113,5 +112,6 @@ def instructor()
   results = SqlRunner.run( sql, values )
   return Instructor.new( results.first )
 end
+
 
 end

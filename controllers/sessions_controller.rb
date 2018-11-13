@@ -2,6 +2,8 @@
 # require( 'sinatra/contrib/all' )
 require_relative( '../models/session.rb' )
 require_relative( '../models/member.rb' )
+require_relative( '../models/instructor.rb' )
+
 also_reload( '../models/*' )
 
 #index

@@ -1,0 +1,9 @@
+<p>All Instructors</p>
+
+<form action="/instructors/new" method="GET"><input type="submit" value="create new instructor"></form>
+
+<% @instructors.each do |instructor| %>
+  <h1><a href="/instructors/<%= instructor.id%>"><%= instructor.name%></a></h1>
+  <p>Name: <%= instructor.name %></p>
+
+<% end %>
