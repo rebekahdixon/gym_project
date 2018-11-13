@@ -7,9 +7,9 @@ get '/instructors' do
   erb ( :"instructors/index" )
 end
 #new
-get '/members/new' do
+get '/instructors/new' do
 
-  erb(:"members/new")
+  erb(:"instructors/new")
 end
 
 #show
