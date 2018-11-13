@@ -20,7 +20,7 @@ CREATE TABLE sessions(
   session_time VARCHAR(255),
   capacity VARCHAR(255),
   session_date VARCHAR(255),
-  instructors_id INT8 REFERENCES instructors(id) ON DELETE CASCADE
+  instructor_id INT8 REFERENCES instructors(id) ON DELETE CASCADE
 );
 
 CREATE TABLE bookings(

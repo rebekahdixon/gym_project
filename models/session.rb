@@ -10,15 +10,16 @@ class Session
     @session_time = options['session_time']
     @capacity = options['capacity'].to_i
     @session_date = format_date(options['session_date'])
+    @instructor_id = options['instructor_id'].to_i
   end
 
   def save()
   sql = "INSERT INTO sessions
-  (session_name, session_time, capacity, session_date)
+  (session_name, session_time, capacity, session_date, instructor_id)
   VALUES
-  ($1, $2, $3, $4)
+  ($1, $2, $3, $4, $5)
   RETURNING id"
-  values = [@session_name, @session_time, @capacity, @session_date]
+  values = [@session_name, @session_time, @capacity, @session_date, @instructor_id]
   results = SqlRunner.run(sql, values)
   @id = results.first()['id'].to_i
 end
@@ -27,10 +28,10 @@ end
 def update()
   sql = "UPDATE sessions
   SET
-  (session_name, session_time, capacity, session_date) =
-  ($1, $2, $3, $4)
-  WHERE id = $5"
-  values = [@session_name, @session_time, @capacity, @session_date, @id]
+  (session_name, session_time, capacity, session_date, instructor_id) =
+  ($1, $2, $3, $4, $5)
+  WHERE id = $6"
+  values = [@session_name, @session_time, @capacity, @session_date, @instructor_id, @id]
   SqlRunner.run(sql, values)
 end
 
@@ -70,7 +71,7 @@ def self.find(id)
 
 def count_members
   # binding.pry
-  members.count 
+  members.count
 end
 
 def session_full?
@@ -103,5 +104,14 @@ def format_date(session_date)
   d.strftime("%d/%m/%Y")
 end
 
+end
+
+def instructor()
+  sql = "SELECT * FROM instructors
+  WHERE id = $1"
+  values = [@instructor_id]
+  results = SqlRunner.run( sql, values )
+  return Instructor.new( results.first )
+end
 
 end
