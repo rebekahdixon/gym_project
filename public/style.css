@@ -1,0 +1,10 @@
+p,
+body{
+  background-color: GhostWhite;
+}
+
+p{
+  font-family: Helvetica;
+  font-size: 40px;
+  text-decoration: underline;
+}
