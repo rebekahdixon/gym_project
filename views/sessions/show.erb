@@ -1,20 +1,24 @@
+
+
 <h1><%= @session.session_name %> </h1>
 
+<div class="sessionshow">
+
 <h3>Session Date + Time</h3>
-<p><%= @session.session_datetime%></p>
+<h4><%= @session.session_datetime%></h4>
 
 
 <h3>Members Attending</h3>
-<ul>
+
  <% @session.members.each do |member| %>
  <li><%= member.format_name %></li>
  <% end %>
-</ul>
+
 <br>
 <br>
 <h3>Number of Spaces Left</h3>
-<%= @session.how_many_spaces %>
+<h4><%= @session.how_many_spaces %></h4>
 
+</div>
 
-
-<form action="/sessions/<%= @session.id %>/delete" method="POST"><input type="submit" value="delete"></form>
+<form action="/sessions/<%= @session.id %>/delete" method="POST"><input type="submit" value="Delete Session"></form>

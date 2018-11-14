@@ -12,10 +12,76 @@ p{
 }
 
 
-
 table, th, td{
   font-family: Metrophobic;
   font-size: 25px;
   border: 1px solid black;
   border-color: RebeccaPurple;
+  margin: 0 auto;
+}
+
+h1{
+  font-family: Metrophobic;
+  font-size: 40px;
+  color: RebeccaPurple;
+  text-decoration: underline;
+  text-align: center;
+}
+
+h3{
+  font-family: Metrophobic;
+  font-size: 20px;
+  color: RebeccaPurple;
+  text-align: center;
+}
+
+h4{
+  font-family: Metrophobic;
+  font-size: 20px;
+
+
+  text-align: center;
+}
+buttonholder{
+  text-align: center;
+}
+
+.sessionshow{
+  text-align: center;
+}
+
+/* input[type="submit"], */
+input[value="create new booking"]{
+  margin-left: 45%;
+  text-align: center;
+}
+
+input[value="delete booking"]{
+  margin-left: 30%;
+  text-align: center;
+}
+
+input[value="Delete Session"]{
+  margin-left: 45%;
+  text-align: center;
+}
+
+input[value="create new session"]{
+  margin-left: 45%;
+  text-align: center;
+}
+
+input[value="Add New Instructor"]{
+  margin-left: 45%;
+  text-align: center;
+}
+
+input[value="Edit Instrutor Name"]{
+  margin-left: 45%;
+  text-align: center;
+}
+
+input[value="Delete Instrutor"]{
+  margin-left: 45%;
+  text-align: center;
 }
