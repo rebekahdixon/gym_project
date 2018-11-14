@@ -1,3 +1,13 @@
+nav ul{
+  list-style: none;
+}
+
+nav ul li{
+    display: inline-block;
+    margin: 0.5em;
+}
+
+
 p,
 body{
   background-color: GhostWhite;
