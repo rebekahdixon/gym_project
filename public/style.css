@@ -4,7 +4,18 @@ body{
 }
 
 p{
-  font-family: Helvetica;
+  font-family: Metrophobic;
   font-size: 40px;
   text-decoration: underline;
+  text-align: center;
+  color: RebeccaPurple;
+}
+
+
+
+table, th, td{
+  font-family: Metrophobic;
+  font-size: 25px;
+  border: 1px solid black;
+  border-color: RebeccaPurple;
 }
