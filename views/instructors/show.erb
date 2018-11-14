@@ -1,14 +1,22 @@
-<h1><%= @instructor.name %> (instructor)</h1>
+<h1><%= @instructor.name %></h1>
 
-<ul>
- <% @instructor.sessions.each do |session| %>
- <li><%= session.session_name %><br>
- <%= session.session_datetime %></li>
- <% end %>
-</ul>
+<table>
+  <tr>
+    <th>Session Name</th>
+    <th>Session Date + Time</th>
+  </tr>
+
+  <% @instructor.sessions.each do |session| %>
+
+  <tr>
+    <td><%= session.session_name %></td>
+    <td><%= session.session_datetime %></td>
+  </tr>
+  <% end %>
+</table>
 <br>
 
-<form action="/instructors/<%= @instructor.id %>/edit" method="GET"><input type="submit" value="Edit"></form>
+<form action="/instructors/<%= @instructor.id %>/edit" method="GET"><input type="submit" value="Edit Instrutor Name"></form>
 
 
-<form action="/instructors/<%= @instructor.id %>/delete" method="POST"><input type="submit" value="delete"></form>
+<form action="/instructors/<%= @instructor.id %>/delete" method="POST"><input type="submit" value="Delete Instrutor"></form>

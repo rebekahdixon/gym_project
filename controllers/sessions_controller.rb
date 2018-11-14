@@ -19,9 +19,13 @@ get '/sessions/new' do
 end
 
 get '/sessions/chooseinstructor/' do
-   # params['capacity'] params['session_name'] params['session_datetime']
+   @capacity = params['capacity']
+   @session_name = params['session_name']
+   @session_datetime = params['session_datetime']
 
 @instructors = Instructor.instructors_free(params['session_datetime'])
+# session = Session.new(params)
+# session.save
 erb(:"sessions/chooseinstructor")
 end
 

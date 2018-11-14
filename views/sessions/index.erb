@@ -2,11 +2,18 @@
 
 <form action="/sessions/new" method="GET"><input type="submit" value="create new session"></form>
 
+<table>
+  <tr>
+    <th>Session Name</th>
+    <th>Session Date + Time</th>
+    </tr>
+
 <% @sessions.each do |session| %>
-  <h1><a href="/sessions/<%= session.id%>"><%= session.session_name%></a></h1>
-  <p>Name: <%= session.session_name %>
-    <br>
-    Time and Date: <%=p session.session_datetime%>
-  </p>
+
+<tr>
+<td>  <a href="/sessions/<%= session.id%>"><%= session.session_name%></a></td>
+<td><%= session.session_datetime%></td>
+</tr>
 
 <% end %>
+</table>

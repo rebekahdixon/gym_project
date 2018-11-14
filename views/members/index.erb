@@ -2,8 +2,18 @@
 
 <form action="/members/new" method="GET"><input type="submit" value="create new member"></form>
 
+<table>
+  <tr>
+    <th>Member</th>
+    </tr>
+
 <% @members.each do |member| %>
-  <h1><a href="/members/<%= member.id%>"><%= member.format_name%></a></h1>
-  <p>Name: <%= member.format_name %></p>
+
+<tr>
+  <td>
+  <a href="/members/<%= member.id%>"><%= member.format_name%></a>
+  </td>
+  </tr>
 
 <% end %>
+</table>

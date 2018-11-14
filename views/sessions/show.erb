@@ -1,8 +1,10 @@
-<h1><%= @session.session_name %> (member)
-<%= @session.session_datetime%>(time)</h1>
+<h1><%= @session.session_name %> </h1>
 
-<h3>Members:</h3>
+<h3>Session Date + Time</h3>
+<p><%= @session.session_datetime%></p>
 
+
+<h3>Members Attending</h3>
 <ul>
  <% @session.members.each do |member| %>
  <li><%= member.format_name %></li>
@@ -10,9 +12,7 @@
 </ul>
 <br>
 <br>
-<%= @session.instructor%>
-<br>
-<br>
+<h3>Number of Spaces Left</h3>
 <%= @session.how_many_spaces %>
 
 

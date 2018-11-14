@@ -1,11 +1,20 @@
 <h1><%= @members.format_name %> (member)</h1>
 
-<ul>
- <% @members.session.each do |session| %>
- <li><%= session.session_name %><br>
- <%= session.session_time %></li>
- <% end %>
-</ul>
+<table>
+  <tr>
+    <th>Session Attending</th>
+    <th>Session Date + Time</th>
+  </tr>
+
+  <% @members.session.each do |session| %>
+
+  <tr>
+    <td><%= session.session_name %></td>
+    <td><%= session.session_datetime %></td>
+  </tr>
+  <% end %>
+</table>
+
 <br>
 
 <form action="/members/<%= @members.id %>/edit" method="GET"><input type="submit" value="Edit"></form>

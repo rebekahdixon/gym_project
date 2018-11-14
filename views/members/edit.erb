@@ -1,11 +1,14 @@
 <form action="/members/<%= @member.id %>" method="post">
-
+<fieldset>
 <label for="first-name">First Name:</label>
 <input id="first-name" type="text" name="first_name" value=" <%= @member.first_name %>">
+</fieldset>
 <br>
 <br>
+<fieldset>
 <label for="last-name">Last Name:</label>
 <input id="last-name" type="text" name="last_name" value="<%= @member.last_name%>">
+</fieldset>
 <br>
 <input type="submit" value="Update Member Information">
 </form>

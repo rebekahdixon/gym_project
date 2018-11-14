@@ -2,12 +2,24 @@
 
 <form action="/bookings/new" method="GET"><input type="submit" value="create new booking"></form>
 
-<!-- how to make this not a link? -->
-  <% @bookings.each do |booking| %>
-    <h1><a <%= booking.id%>"><%= booking.member.format_name%><br><%= booking.session.session_name%></a></h1>
+<table>
+<tr>
+  <th>Member</th>
+  <th>Session Attending</th>
+  <th>Delete Booking</th>
+</tr>
 
-    <form action="/bookings/<%= booking.id %>/delete" method="POST">
-      <input type="submit" value="delete booking" />
-    </form>
+<% @bookings.each do |booking| %>
+
+<tr>
+  <td> <%= booking.member.format_name%> </td>
+  <td> <%= booking.session.session_name%> </td>
+  <td>
+  <form action="/bookings/<%= booking.id %>/delete" method="POST">
+    <input type="submit" value="delete booking" />
+  </form>
+  </td>
+</tr>
 
 <% end %>
+</table>

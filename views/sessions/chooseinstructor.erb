@@ -1,6 +1,21 @@
 <form action="/sessions" method="post">
+  <fieldset>
+  <label for="session-name">Session Name:</label>
+  <input value="<%= @session_name %>" id="session-name" type="text" name="session_name" readonly="readonly" >
+  </fieldset>
+  <br>
+  <fieldset>
+  <label for="capacity">Capacity:</label><input value="<%= @capacity %>" id="capacity" type="text" name="capacity" readonly="readonly" >
+  </fieldset>
+  <br>
+  <br>
+  <br>
+  <fieldset>
+  <label for="session-datetime">Session Time and Date:</label>
+  <input value="<%= @session_datetime %>" id="session-datetime" type="datetime-local" name="session_datetime" readonly="readonly">
+  </fieldset>
 
-</form>
+  <fieldset>
 <label>
 Select a Instructor:
   <select name="instructor_id">
@@ -9,8 +24,10 @@ Select a Instructor:
     <% end %>
   </select>
 </label>
+</fieldset>
 <br>
 <br>
 
 
 <input type="submit" value="Create new session">
+</form>
