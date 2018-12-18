@@ -1,5 +1,5 @@
 Introduction:
-Created for the week 5 solo project of Codeclan (Cohort E26), this program allows for 
+Created for the week 5 solo project of Codeclan (Cohort E26), this program is for a Gym that helps them to manage memberships, and register members for classes.
 
 To Run:
 Create appropriate db
@@ -25,10 +25,17 @@ PostgreSQL and the PG gem
 It must NOT use:
 
 Any Object Relational Mapper (e.g. ActiveRecord)
-JavaScript. At all. Don't even think about it.
+JavaScript. 
 Any pre-built CSS libraries, such as Bootstrap.
 Authentication. Assume that the user already has secure access to the app.
-Shop Inventory
-Build an app which allows a shopkeeper to track their shop's inventory. This is not an app which the customer will see, it is an admin/management app for the shop workers.
 
 MVP
+The app should allow the gym to create / edit / delete members
+The app should allow the gym to create / edit / delete classes
+The app should allow the gym to add members to specific classes
+The app should show a list of all upcoming classes
+The app should show all members that are registered for a particular class
+
+Possible Extensions
+Classes could have a maximum capacity, and users can only be added while there is space remaining.
+An instructor could only be booked if not already scheduled for a class already booked to teach in at that time.
